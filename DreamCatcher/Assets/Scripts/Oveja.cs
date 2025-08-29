@@ -3,21 +3,19 @@ using System.Collections;
 
 public class Oveja : MonoBehaviour
 {
-    public float fallSpeed = 3f;
+    public float fallSpeed = 3f; // velocidad de caída
     private bool recolectada = false;
 
     void Update()
     {
         if (!recolectada)
         {
-            // Caída constante
+            // Caída constante hacia abajo
             transform.Translate(Vector2.down * fallSpeed * Time.deltaTime);
 
-            // Destruir si sale de pantalla
+            // Destruir si sale de la pantalla
             if (transform.position.y < -6f)
-            {
                 Destroy(gameObject);
-            }
         }
     }
 
@@ -38,14 +36,15 @@ public class Oveja : MonoBehaviour
         {
             bool aceptada = scriptColador.AgregarOveja(transform);
 
+            // Si colador está invertido o lleno, la oveja sigue cayendo
             if (!aceptada)
             {
-                recolectada = false; // sigue cayendo
+                recolectada = false;
                 yield break;
             }
         }
 
-        yield return null; // la oveja queda en el colador
+        // Esperar a que el colador maneje la oveja (recompensa o expulsión)
+        yield return null;
     }
-
 }

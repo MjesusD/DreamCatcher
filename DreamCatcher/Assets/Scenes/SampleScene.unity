@@ -613,10 +613,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 695004d41289b6243861d82337d42e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ovejaPrefab: {fileID: 8828200647743629343, guid: fdfa7c6df390aa44088151678ab19ae8, type: 3}
+  ovejaBuenaPrefab: {fileID: 8828200647743629343, guid: fdfa7c6df390aa44088151678ab19ae8, type: 3}
+  ovejaEnemigaPrefab: {fileID: 2298414910694231504, guid: 817e75a8492beee47a475c510e90f7a4, type: 3}
   spawnInterval: 2
   spawnRangeX: 8
   spawnHeight: 6
+  probabilidadEnemiga: 0.5
 --- !u!4 &906394746
 Transform:
   m_ObjectHideFlags: 0
@@ -1306,6 +1308,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdfa7c6df390aa44088151678ab19ae8, type: 3}
+--- !u!1001 &7785608259671954799
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 481870123725634692, guid: 817e75a8492beee47a475c510e90f7a4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.9335604
+      objectReference: {fileID: 0}
+    - target: {fileID: 481870123725634692, guid: 817e75a8492beee47a475c510e90f7a4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.82537925
+      objectReference: {fileID: 0}
+    - target: {fileID: 481870123725634692, guid: 817e75a8492beee47a475c510e90f7a4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.06330061
+      objectReference: {fileID: 0}
+    - target: {fileID: 481870123725634692, guid: 817e75a8492beee47a475c510e90f7a4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 481870123725634692, guid: 817e75a8492beee47a475c510e90f7a4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 481870123725634692, guid: 817e75a8492beee47a475c510e90f7a4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 481870123725634692, guid: 817e75a8492beee47a475c510e90f7a4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 481870123725634692, guid: 817e75a8492beee47a475c510e90f7a4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 481870123725634692, guid: 817e75a8492beee47a475c510e90f7a4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 481870123725634692, guid: 817e75a8492beee47a475c510e90f7a4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2298414910694231504, guid: 817e75a8492beee47a475c510e90f7a4, type: 3}
+      propertyPath: m_Name
+      value: Oveja_Enemiga
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 817e75a8492beee47a475c510e90f7a4, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1318,3 +1377,4 @@ SceneRoots:
   - {fileID: 906394746}
   - {fileID: 1594637131}
   - {fileID: 193543422}
+  - {fileID: 7785608259671954799}

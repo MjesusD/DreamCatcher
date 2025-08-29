@@ -4,13 +4,15 @@ using TMPro;
 
 public class Colador : MonoBehaviour
 {
-    public Rigidbody2D rb; 
+    [Header("Movimiento")]
+    public Rigidbody2D rb;
     public float moveSpeed = 10f;
-    public int puntaje = 0;
 
+    [Header("Puntaje")]
+    public int puntaje = 0;
     public TMP_Text textoPuntaje;
 
-    private float inputValue;
+    [Header("Slots")]
     public Transform[] slots;
     private Transform[] ocupados;
 
@@ -19,16 +21,18 @@ public class Colador : MonoBehaviour
     public Sprite invertidoSprite;
     private SpriteRenderer spriteRenderer;
 
+    private float inputValue;
     private bool invertido = false;
+
 
     void Start()
     {
         ocupados = new Transform[slots.Length];
-        ActualizarTexto();
-
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null && normalSprite != null)
             spriteRenderer.sprite = normalSprite;
+
+        ActualizarTexto();
     }
 
     void Update()
@@ -37,7 +41,7 @@ public class Colador : MonoBehaviour
         inputValue = Input.GetAxisRaw("Horizontal");
         rb.linearVelocity = new Vector2(inputValue * moveSpeed, 0f);
 
-        // Invertir colador con click izquierdo
+        // Invertir colador y cambiar sprite mientras se mantiene click izquierdo
         if (Input.GetMouseButton(0))
         {
             if (!invertido)
@@ -64,27 +68,24 @@ public class Colador : MonoBehaviour
             textoPuntaje.text = "Puntaje: " + puntaje;
     }
 
-    // Método para agregar oveja al colador
+    // Método para recolectar o expulsar oveja
     public bool AgregarOveja(Transform oveja)
     {
-        // Si está invertido, expulsa en lugar de recolectar
+        // Si el colador está invertido, expulsar oveja hacia arriba
         if (invertido)
         {
             Rigidbody2D rbOveja = oveja.GetComponent<Rigidbody2D>();
             if (rbOveja != null)
             {
-                rbOveja.simulated = true;
-                rbOveja.linearVelocity = new Vector2(0f, 8f); // expulsión hacia arriba
+                rbOveja.simulated = false; // desactivamos física
             }
 
-            // Destruir la oveja después de 2 segundos
-            Destroy(oveja.gameObject, 2f);
-
-            return false; // no se guarda en el colador
+            // Movimiento manual hacia arriba y destrucción
+            StartCoroutine(ExpulsarOveja(oveja, 2f));
+            return false;
         }
 
-        // Código normal de guardado
-        
+        // Recolección normal de ovejas en slots
         int slotIndex = -1;
         for (int i = 0; i < slots.Length; i++)
         {
@@ -97,7 +98,6 @@ public class Colador : MonoBehaviour
 
         if (slotIndex == -1) return false;
 
-        // Colocar oveja en slot
         oveja.SetParent(slots[slotIndex]);
         oveja.localPosition = Vector3.zero;
         ocupados[slotIndex] = oveja;
@@ -113,25 +113,64 @@ public class Colador : MonoBehaviour
         return true;
     }
 
-
+    // Corutina para recompensar oveja recolectada
     private IEnumerator RecompensarOveja(Transform oveja, int slotIndex, float delay)
     {
         yield return new WaitForSeconds(delay);
 
-        // Comprobar si la oveja aún existe
         if (oveja != null)
         {
             puntaje += 1;
             ActualizarTexto();
-
-            ocupados[slotIndex] = null;
             Destroy(oveja.gameObject);
         }
-        else
+
+        ocupados[slotIndex] = null;
+    }
+
+    // Corutina para expulsar oveja hacia arriba sin colisiones
+    private IEnumerator ExpulsarOveja(Transform oveja, float duracion)
+    {
+        float timer = 0f;
+        while (timer < duracion && oveja != null)
         {
-            // Si ya fue expulsada, liberamos el slot
-            ocupados[slotIndex] = null;
+            oveja.Translate(Vector2.up * 8f * Time.deltaTime); // velocidad hacia arriba
+            timer += Time.deltaTime;
+            yield return null;
         }
+
+        if (oveja != null)
+            Destroy(oveja.gameObject);
+    }
+
+
+    // Reiniciar colador (opcional)
+    public void ResetPlayer()
+    {
+        transform.position = Vector3.zero;
+        rb.linearVelocity = Vector2.zero;
+        invertido = false;
+        if (spriteRenderer != null && normalSprite != null)
+            spriteRenderer.sprite = normalSprite;
+
+        for (int i = 0; i < ocupados.Length; i++)
+        {
+            if (ocupados[i] != null)
+                Destroy(ocupados[i].gameObject);
+            ocupados[i] = null;
+        }
+
+        puntaje = 0;
+        ActualizarTexto();
+    }
+
+    public bool Invertido { get { return invertido; } }
+
+    public void ModificarPuntaje(int cantidad)
+    {
+        puntaje += cantidad;
+        if (puntaje < 0) puntaje = 0;
+        ActualizarTexto();
     }
 
 }
