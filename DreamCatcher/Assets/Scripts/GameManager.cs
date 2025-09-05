@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
         ActualizarUI();
     }
 
-    // === API de Puntaje ===
+    // Puntaje 
     public void ModificarPuntaje(int delta)
     {
         if (NivelTerminado) return;
@@ -83,11 +83,14 @@ public class GameManager : MonoBehaviour
     private void FinNivel(bool victoria)
     {
         NivelTerminado = true;
-        if (victoria && pantallaVictoria) pantallaVictoria.SetActive(true);
-        if (!victoria && pantallaDerrota) pantallaDerrota.SetActive(true);
+        if (victoria)
+            UnityEngine.SceneManagement.SceneManager.LoadScene("VictoryScene");
+        else
+            UnityEngine.SceneManagement.SceneManager.LoadScene("DefeatScene");
 
         Debug.Log(victoria ? "¡Nivel superado!" : "Tiempo agotado. Derrota.");
     }
+
 
     private void ActualizarUI()
     {
