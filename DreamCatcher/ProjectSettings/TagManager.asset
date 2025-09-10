@@ -45,5 +45,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: UI
+    uniqueID: 1126012737
+    locked: 0
+  - name: Gameplay
+    uniqueID: 2337307311
+    locked: 0
   m_RenderingLayers:
   - Default

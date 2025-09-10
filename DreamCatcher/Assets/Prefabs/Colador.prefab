@@ -172,10 +172,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: -296451616704147984, guid: 5dd9fdcbca831e04da52503074bcdc73, type: 3}
+  m_SortingLayerID: -1957659985
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -6917897582985576785, guid: 6e19957dc20b4fb4bb214e7ac27b6610, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -270,5 +270,5 @@ MonoBehaviour:
   normalSprite: {fileID: -296451616704147984, guid: 5dd9fdcbca831e04da52503074bcdc73, type: 3}
   invertidoSprite: {fileID: 371840644575797665, guid: a02098e8aa246824087ea86cd7be560d, type: 3}
   tiempoTransformarOveja: 0.1
-  fuerzaExpulsion: 8
+  fuerzaExpulsion: 3
   colarDaPuntos: 1
