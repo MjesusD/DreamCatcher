@@ -1146,7 +1146,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Movimiento: W & D  o  \u2190 / \u2192\nRebote: Mantener Click Izquierdo\nTamizar:
+  m_text: "Movimiento: A & D  o  \u2190 / \u2192\nRebote: Mantener Click Izquierdo\nTamizar:
     Mantener Click Derecho"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f76dac40f6b3f204f8ccc1d2e99cc007, type: 2}
