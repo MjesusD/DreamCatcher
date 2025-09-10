@@ -1,5 +1,4 @@
 using UnityEngine;
-using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,13 +11,14 @@ public class GameManager : MonoBehaviour
     [Header("Valores de Puntaje")]
     public int puntosPorOvejaBuena = 1;
     public int penalizacionOvejaMala = 1;
-    public int bonoPorColarNube = 1; // opcional
+    public int bonoPorColarNube = 1;
 
-    [Header("UI")]
-    public TMP_Text textoPuntaje; // "Puntaje: X / Meta"
-    public TMP_Text textoTiempo;  // "Tiempo: mm:ss"
-    public GameObject pantallaVictoria;
-    public GameObject pantallaDerrota;
+    [Header("UI (SpriteRenderer)")]
+    public SpriteRenderer barraPuntaje;  
+    public SpriteRenderer barraTiempo;  
+
+    private Vector3 escalaInicialPuntaje;
+    private Vector3 escalaInicialTiempo;
 
     [Header("Estado")]
     public int puntajeActual = 0;
@@ -35,6 +35,11 @@ public class GameManager : MonoBehaviour
     {
         NivelTerminado = false;
         tiempoRestante = tiempoNivel;
+
+        // Guardamos escalas originales de los rellenos
+        if (barraPuntaje) escalaInicialPuntaje = barraPuntaje.transform.localScale;
+        if (barraTiempo) escalaInicialTiempo = barraTiempo.transform.localScale;
+
         ActualizarUI();
     }
 
@@ -48,10 +53,11 @@ public class GameManager : MonoBehaviour
             tiempoRestante = 0f;
             VerificarCondicionFinal();
         }
+
         ActualizarUI();
     }
 
-    // Puntaje 
+    // Puntaje
     public void ModificarPuntaje(int delta)
     {
         if (NivelTerminado) return;
@@ -91,18 +97,27 @@ public class GameManager : MonoBehaviour
         Debug.Log(victoria ? "¡Nivel superado!" : "Tiempo agotado. Derrota.");
     }
 
-
+    // Actualización de barras 
     private void ActualizarUI()
     {
-        if (textoPuntaje)
-            textoPuntaje.text = $"Puntaje: {puntajeActual} / {puntosMeta}";
-
-        if (textoTiempo)
+        if (barraPuntaje)
         {
-            int t = Mathf.CeilToInt(tiempoRestante);
-            int mm = t / 60;
-            int ss = t % 60;
-            textoTiempo.text = $"Tiempo: {mm:00}:{ss:00}";
+            float fill = (float)puntajeActual / puntosMeta;
+            barraPuntaje.transform.localScale = new Vector3(
+                escalaInicialPuntaje.x * Mathf.Clamp01(fill),
+                escalaInicialPuntaje.y,
+                escalaInicialPuntaje.z
+            );
+        }
+
+        if (barraTiempo)
+        {
+            float fill = tiempoRestante / tiempoNivel;
+            barraTiempo.transform.localScale = new Vector3(
+                escalaInicialTiempo.x * Mathf.Clamp01(fill),
+                escalaInicialTiempo.y,
+                escalaInicialTiempo.z
+            );
         }
     }
 }

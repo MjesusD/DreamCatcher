@@ -175,7 +175,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -6917897582985576785, guid: 6e19957dc20b4fb4bb214e7ac27b6610, type: 3}
+  m_Sprite: {fileID: -296451616704147984, guid: 5dd9fdcbca831e04da52503074bcdc73, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -267,8 +267,8 @@ MonoBehaviour:
   - {fileID: 4004176592168230078}
   - {fileID: 6616509011465507531}
   - {fileID: 64617705484078952}
-  normalSprite: {fileID: -6917897582985576785, guid: 6e19957dc20b4fb4bb214e7ac27b6610, type: 3}
-  invertidoSprite: {fileID: -6284044422538563748, guid: 97dab109920a61148b2e083545ed23b2, type: 3}
+  normalSprite: {fileID: -296451616704147984, guid: 5dd9fdcbca831e04da52503074bcdc73, type: 3}
+  invertidoSprite: {fileID: 371840644575797665, guid: a02098e8aa246824087ea86cd7be560d, type: 3}
   tiempoTransformarOveja: 0.1
   fuerzaExpulsion: 8
   colarDaPuntos: 1

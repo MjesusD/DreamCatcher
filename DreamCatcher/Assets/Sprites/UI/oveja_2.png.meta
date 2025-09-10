@@ -1,0 +1,327 @@
+fileFormatVersion: 2
+guid: 533330a0f2c6c1141a9cfbd3d5d2c75f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7314602069492833734
+    second: oveja_2_0
+  - first:
+      213: 7488295052353403278
+    second: oveja_2_1
+  - first:
+      213: 2342541841435803739
+    second: oveja_2_2
+  - first:
+      213: 7663742121054116136
+    second: oveja_2_3
+  - first:
+      213: 5398144538266931707
+    second: oveja_2_4
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.4602287, y: 0.42915726}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: 0
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: oveja_2_0
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 319
+        width: 422
+        height: 237
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cd1579e3dfa28560800000000000000
+      internalID: 7314602069492833734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oveja_2_1
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 534
+        width: 121
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e89f6d8eca4cbe760800000000000000
+      internalID: 7488295052353403278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oveja_2_2
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 510
+        width: 114
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b50454ab461628020800000000000000
+      internalID: 2342541841435803739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oveja_2_3
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 288
+        width: 21
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82911a7dad41b5a60800000000000000
+      internalID: 7663742121054116136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oveja_2_4
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 296
+        width: 18
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf19d916bdf0aea40800000000000000
+      internalID: 5398144538266931707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline:
+    - - {x: -61, y: -245}
+      - {x: 23, y: -245}
+      - {x: 159, y: -139}
+      - {x: 133, y: -44}
+      - {x: 185, y: -32}
+      - {x: 201, y: -11}
+      - {x: 201, y: 28}
+      - {x: 198, y: 38}
+      - {x: -19, y: 38}
+      - {x: -33, y: 34.956528}
+      - {x: -33, y: 42}
+      - {x: -99, y: 79}
+      - {x: -148, y: 79}
+      - {x: -150, y: 77}
+      - {x: -156, y: 69}
+      - {x: -156, y: 31}
+      - {x: -136.4627, y: 12.46463}
+      - {x: -226, y: -7}
+      - {x: -149, y: -94}
+      - {x: -98, y: -110}
+      - {x: -133, y: -111}
+      - {x: -251, y: -52}
+      - {x: -273, y: -49}
+      - {x: -285, y: -57}
+      - {x: -285, y: -102}
+      - {x: -84, y: -244.29208}
+      - {x: -84, y: -253}
+      - {x: -61, y: -253}
+    - - {x: -50, y: -153}
+      - {x: -50, y: -151}
+      - {x: -48, y: -151}
+      - {x: -48, y: -154}
+    - - {x: -40, y: -155}
+      - {x: -40, y: -152}
+      - {x: -38, y: -152}
+      - {x: -38, y: -155}
+    - - {x: -23, y: -155}
+      - {x: -22, y: -156}
+      - {x: -22, y: -158}
+    - - {x: -6, y: -162}
+      - {x: -7, y: -162}
+      - {x: -7, y: -159}
+      - {x: -5, y: -161}
+      - {x: -5, y: -163}
+    - - {x: -58, y: -161}
+      - {x: -58, y: -160}
+      - {x: -57, y: -160}
+      - {x: -57, y: -161}
+    - - {x: -49, y: -162}
+      - {x: -49, y: -161}
+      - {x: -48, y: -162}
+    - - {x: 3, y: -166}
+      - {x: 2, y: -162}
+      - {x: 3, y: -163}
+      - {x: 4, y: -163}
+      - {x: 4, y: -166}
+    - - {x: -38, y: -163}
+      - {x: -37, y: -163}
+      - {x: -37, y: -164}
+    - - {x: 12, y: -166}
+      - {x: 12, y: -165}
+      - {x: 13, y: -166}
+    - - {x: -75, y: -191}
+      - {x: -75, y: -190}
+      - {x: -73, y: -191}
+    - - {x: 12, y: -194}
+      - {x: 12.666672, y: -194.33333}
+      - {x: 12.5, y: -194.5}
+    - - {x: -49, y: -203}
+      - {x: -48, y: -201}
+      - {x: -48, y: -203}
+    - - {x: -31, y: -205}
+      - {x: -32, y: -202}
+      - {x: -30, y: -202}
+      - {x: -30, y: -205}
+    - - {x: -22, y: -204}
+      - {x: -22, y: -203}
+      - {x: -21, y: -203}
+      - {x: -21, y: -204}
+      - {x: -20, y: -205}
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      oveja_2_0: 7314602069492833734
+      oveja_2_1: 7488295052353403278
+      oveja_2_2: 2342541841435803739
+      oveja_2_3: 7663742121054116136
+      oveja_2_4: 5398144538266931707
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
