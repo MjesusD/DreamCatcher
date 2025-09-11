@@ -3,19 +3,28 @@ using System.Collections;
 
 public class Oveja : MonoBehaviour
 {
-    public float fallSpeed = 3f; // velocidad de caída
+    public float fallSpeed = 3f;
     private bool recolectada = false;
+    private Rigidbody2D rb;
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0;
+        rb.freezeRotation = true;
+    }
+
+    void Start()
+    {
+        rb.linearVelocity = Vector2.down * fallSpeed;
+    }
 
     void Update()
     {
+        // Movimiento manual si no está recolectada
         if (!recolectada)
         {
-            // Caída constante hacia abajo
-            transform.Translate(Vector2.down * fallSpeed * Time.deltaTime);
-
-            // Destruir si sale de la pantalla
-            if (transform.position.y < -6f)
-                Destroy(gameObject);
+            rb.linearVelocity = Vector2.down * fallSpeed;
         }
     }
 
@@ -23,28 +32,33 @@ public class Oveja : MonoBehaviour
     {
         if (!recolectada && collision.CompareTag("Colador"))
         {
-            StartCoroutine(Recolectar(collision.transform));
+            Colador colador = collision.GetComponent<Colador>();
+            if (colador != null)
+                StartCoroutine(Recolectar(colador));
         }
     }
 
-    private IEnumerator Recolectar(Transform colador)
+    private IEnumerator Recolectar(Colador scriptColador)
     {
+        if (scriptColador == null) yield break;
+
         recolectada = true;
 
-        Colador scriptColador = colador.GetComponent<Colador>();
-        if (scriptColador != null)
-        {
-            bool aceptada = scriptColador.AgregarOveja(transform);
+        // Intentamos agregar la oveja al colador
+        bool aceptada = scriptColador.AgregarOveja(transform);
 
-            // Si colador está invertido o lleno, la oveja sigue cayendo
-            if (!aceptada)
-            {
-                recolectada = false;
-                yield break;
-            }
+        // Si no fue aceptada (colador invertido o lleno), vuelve a caer
+        if (!aceptada)
+        {
+            recolectada = false;
+            rb.linearVelocity = Vector2.down * fallSpeed;
+            yield break;
         }
 
-        // Esperar a que el colador maneje la oveja (recompensa o expulsión)
+        // Si fue aceptada, la física y destrucción la maneja el colador
+        rb.linearVelocity = Vector2.zero;
+        rb.simulated = false;
+
         yield return null;
     }
 }

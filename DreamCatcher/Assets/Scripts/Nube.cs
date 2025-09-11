@@ -5,32 +5,33 @@ public class Nube : MonoBehaviour
     [HideInInspector] public Nube_Manager manager;
 
     private bool cayendo = false;
-    private bool bloqueando = false; // bloquea colador al caer
-    private bool deshaciendo = false; // se destruye poco a poco
+    private bool bloqueando = false;
+    private bool deshaciendo = false;
     private float fallSpeed;
     private Rigidbody2D rb;
     private float shrinkSpeed = 3f;
+
+    private Colador coladorActual;
 
     public bool Destruida { get; private set; } = false;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.bodyType = RigidbodyType2D.Kinematic; // quieta por defecto
+        rb.bodyType = RigidbodyType2D.Kinematic;
     }
 
     void Update()
     {
-        // Movimiento hacia abajo si está cayendo y no bloquea ni se destruye
+        // Caída libre
         if (cayendo && !bloqueando && !deshaciendo)
             transform.Translate(Vector2.down * fallSpeed * Time.deltaTime);
 
-        // Animación de deshacer/destruir
+        // Animación de deshacer
         if (deshaciendo)
         {
             transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, shrinkSpeed * Time.deltaTime);
 
-            // Cuando casi desaparece, notificar manager y liberar colador
             if (transform.localScale.magnitude < 0.05f)
             {
                 Destruida = true;
@@ -54,47 +55,46 @@ public class Nube : MonoBehaviour
         deshaciendo = false;
         Destruida = false;
         rb.bodyType = RigidbodyType2D.Kinematic;
+        coladorActual = null;
         gameObject.SetActive(true);
     }
 
     // Bloquea colador y ocupa un slot
     public void BloquearColador(Colador colador)
     {
+        if (bloqueando) return;
+
         cayendo = false;
         bloqueando = true;
         rb.bodyType = RigidbodyType2D.Static;
 
-        if (colador != null)
-            colador.BloquearPorNube(this);
+        coladorActual = colador;
+        colador?.BloquearPorNube(this);
     }
 
-    // Empieza a deshacerse y libera el colador
+    // Empieza a deshacerse y libera colador inmediatamente
     public void Deshacer()
     {
-        if (!deshaciendo)
+        if (deshaciendo) return;
+
+        deshaciendo = true;
+        bloqueando = false;
+
+        if (coladorActual != null)
         {
-            deshaciendo = true;
-            bloqueando = false;
+            coladorActual.DestruirNube();
+            coladorActual = null;
         }
     }
 
-    // Notifica al manager antes de destruir el objeto
     private void NotificarEliminacion()
     {
-        // Liberar colador antes de destruir
-        Colador col = FindAnyObjectByType<Colador>();
-        if (col != null && bloqueando == false)
-            col.DestruirNube();
-
-        // Notificar al manager
-        if (manager != null)
-            manager.NubeEliminada(this);
-
+        manager?.NubeEliminada(this);
         Destroy(gameObject);
     }
 
-    public bool EstaCayendo { get { return cayendo; } }
-    public bool EstaAtrapada { get { return bloqueando; } }
+    public bool EstaCayendo => cayendo;
+    public bool EstaAtrapada => bloqueando;
 
     private void OnTriggerEnter2D(Collider2D other)
     {

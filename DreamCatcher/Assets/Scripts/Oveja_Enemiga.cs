@@ -1,16 +1,21 @@
 using UnityEngine;
-using System.Collections;
 
 public class Oveja_Enemiga : MonoBehaviour
 {
     public float fallSpeed = 3f;
     private bool procesada = false;
+    private Rigidbody2D rb;
 
-    void Update()
+    void Awake()
     {
-        transform.Translate(Vector2.down * fallSpeed * Time.deltaTime);
-        if (transform.position.y < -6f)
-            Destroy(gameObject);
+        rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0;         // caen controladas, no por gravedad
+        rb.freezeRotation = true;
+    }
+
+    void Start()
+    {
+        rb.linearVelocity = Vector2.down * fallSpeed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,32 +28,23 @@ public class Oveja_Enemiga : MonoBehaviour
             if (colador != null)
             {
                 procesada = true;
+
                 if (colador.Invertido)
                 {
-                    // Colador invertido - sumar puntos
-                    StartCoroutine(Expulsar(colador, 1));
+                    // Rebote con AddForce
+                    rb.linearVelocity = Vector2.zero;
+                    rb.AddForce(Vector2.up * 8f, ForceMode2D.Impulse);
+
+                    colador.ModificarPuntaje(1);
+                    Destroy(gameObject, 2f); // se destruye tras el rebote
                 }
                 else
                 {
-                    // Colador normal - restar puntos
+                    // Colador normal, resta puntos
                     colador.ModificarPuntaje(-1);
                     Destroy(gameObject);
                 }
             }
         }
-    }
-
-    private IEnumerator Expulsar(Colador colador, int puntos)
-    {
-        float timer = 0f;
-        while (timer < 1.5f)
-        {
-            transform.Translate(Vector2.up * 8f * Time.deltaTime);
-            timer += Time.deltaTime;
-            yield return null;
-        }
-
-        colador.ModificarPuntaje(puntos);
-        Destroy(gameObject);
     }
 }

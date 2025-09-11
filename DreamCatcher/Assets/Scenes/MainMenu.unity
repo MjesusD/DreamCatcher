@@ -310,7 +310,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -321,7 +321,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: -459662887302340632, guid: e15d9fcce739d634193a2f92a43b996b, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -2121,18 +2121,18 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 0.99433964, b: 0.99433964, a: 1}
     m_PressedColor: {r: 0.6784314, g: 0.8901961, b: 0.99607843, a: 1}
-    m_SelectedColor: {r: 0.6, g: 0.8235295, b: 0.9803922, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_SelectedColor: {r: 0, g: 0, b: 0, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: -459662887302340632, guid: e15d9fcce739d634193a2f92a43b996b, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
@@ -4180,6 +4180,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 994377682}
     - target: {fileID: 6976063785645344140, guid: c7d2e515222167b468c1381954e05f1b, type: 3}
+      propertyPath: fadePanel
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976063785645344140, guid: c7d2e515222167b468c1381954e05f1b, type: 3}
       propertyPath: musicPanel
       value: 
       objectReference: {fileID: 2111614627}
@@ -4191,6 +4195,10 @@ PrefabInstance:
       propertyPath: mainMenuPanel
       value: 
       objectReference: {fileID: 1718857669}
+    - target: {fileID: 6976063785645344140, guid: c7d2e515222167b468c1381954e05f1b, type: 3}
+      propertyPath: instruccionesPanel
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7291307432080325446, guid: c7d2e515222167b468c1381954e05f1b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.354227

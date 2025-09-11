@@ -230,7 +230,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6936746961192627712}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -263,10 +263,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 6371626132112999056}
   moveSpeed: 20
-  slots:
-  - {fileID: 4004176592168230078}
-  - {fileID: 6616509011465507531}
-  - {fileID: 64617705484078952}
+  slotsOvejas:
+  - {fileID: 0}
+  - {fileID: 0}
+  slotsNubes:
+  - {fileID: 0}
   normalSprite: {fileID: -296451616704147984, guid: 5dd9fdcbca831e04da52503074bcdc73, type: 3}
   invertidoSprite: {fileID: 371840644575797665, guid: a02098e8aa246824087ea86cd7be560d, type: 3}
   tiempoTransformarOveja: 0.1
