@@ -18,22 +18,20 @@ public class ParallaxGroup : MonoBehaviour
     [System.Serializable]
     public class Etapa
     {
-        public GameObject root;       // Mañana, Tarde, Noche
+        public GameObject root;
         public ParallaxLayer[] layers;
+        public float duration = 10f; // Tiempo visual de esta etapa
     }
 
     [Header("Configuración de etapas")]
     public Etapa[] etapas;
-    public float changeInterval = 10f;   // Tiempo hasta siguiente fase
     public float fadeDuration = 2f;
 
     private int currentIndex = 0;
-
     public static event CambioEtapaHandler OnCambioEtapa;
 
     void Start()
     {
-        // Inicializar capas y clones
         foreach (var etapa in etapas)
         {
             etapa.root.SetActive(false);
@@ -63,7 +61,6 @@ public class ParallaxGroup : MonoBehaviour
             foreach (var layer in etapas[currentIndex].layers)
             {
                 if (layer.layer == null) continue;
-
                 layer.layer.Translate(Vector2.left * layer.speed * Time.deltaTime, Space.World);
                 foreach (var c in layer.clones)
                     c.Translate(Vector2.left * layer.speed * Time.deltaTime, Space.World);
@@ -79,12 +76,12 @@ public class ParallaxGroup : MonoBehaviour
         }
     }
 
-    // Cambiar fase automáticamente según tiempo
     IEnumerator CambiarEtapasAutomatico()
     {
         while (currentIndex < etapas.Length - 1)
         {
-            yield return new WaitForSeconds(changeInterval);
+            float tiempoEtapa = etapas[currentIndex].duration;
+            yield return new WaitForSeconds(tiempoEtapa);
 
             int nextIndex = currentIndex + 1;
             StartCoroutine(FadeEtapas(currentIndex, nextIndex));
@@ -102,7 +99,6 @@ public class ParallaxGroup : MonoBehaviour
     private IEnumerator FadeEtapas(int from, int to)
     {
         etapas[to].root.SetActive(true);
-
         float timer = 0f;
         while (timer < fadeDuration)
         {
@@ -120,7 +116,7 @@ public class ParallaxGroup : MonoBehaviour
         SetAlphaEtapa(etapas[to], 1f);
         etapas[from].root.SetActive(false);
 
-        OnCambioEtapa?.Invoke(to);
+        OnCambioEtapa?.Invoke(to); // Solo notifica cambio visual
     }
 
     void SetAlphaEtapa(Etapa etapa, float alpha)

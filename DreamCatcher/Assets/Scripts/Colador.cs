@@ -188,9 +188,13 @@ public class Colador : MonoBehaviour
             slotActual = -1;
         }
 
-        if (colarDaPuntos && GameManager.Instance != null)
+        if (GameManager.Instance != null)
+        {
+            // Sumar tiempo 
             GameManager.Instance.NubeColada();
+        }
 
         nubeActual = null;
     }
+
 }

@@ -21,5 +21,8 @@ public class Instructions_Manager : MonoBehaviour
 
         // Reanudar el juego
         Time.timeScale = 1f;
+
+        // Iniciar fase 1 con panel fade
+        GameManager.Instance.ComenzarJuegoDesdeInstrucciones();
     }
 }
